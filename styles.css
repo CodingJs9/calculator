@@ -33,6 +33,7 @@ body {
 	color: white;
 	user-select: none;
 	box-shadow: 1px 1px 5px 0 rgb(14, 13, 13);
+	height: 60px;
 }
 
 .top-display {
