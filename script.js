@@ -14,11 +14,12 @@ function handleClick(e) {
 			e.target.classList.contains('operator')
 		) {
 			bottomDisplay.innerText += e.target.value
-			bottomDisplayContent = bottomDisplay.value
-			console.log(bottomDisplayContent)
+			bottomDisplayContent = bottomDisplay.innerText
 		} else if (e.target.classList.contains('ac')) {
 			topDisplay.innerText = ''
 			bottomDisplay.innerText = ''
+		} else if (e.target.classList.contains('del')) {
+			bottomDisplay.innerText = bottomDisplay.innerText.slice(0, -1)
 		}
 	}
 }
