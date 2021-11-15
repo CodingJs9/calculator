@@ -22,7 +22,6 @@ function handleClick(e) {
 			secondNumber = parseInt(bottomDisplay.innerText)
 			topDisplay.innerText += bottomDisplay.innerText + '='
 			bottomDisplay.innerText = operate(operator, firstNumber, secondNumber)
-			console.log(secondNumber)
 		} else if (e.target.classList.contains('ac')) {
 			topDisplay.innerText = ''
 			bottomDisplay.innerText = ''
@@ -41,19 +40,18 @@ const multiply = (x, y) => x * y
 const divide = (x, y) => x / y
 
 const operate = (operator, x, y) => {
-	if (y === null) return x
 	switch (operator) {
 		case '+':
-			return add(x, y)
+			return Math.round(add(x, y) * 100) / 100
 			break
 		case '-':
-			return subtract(x, y)
+			return Math.round(subtract(x, y) * 100) / 100
 			break
 		case '×':
-			return multiply(x, y)
+			return Math.round(multiply(x, y) * 100) / 100
 			break
 		case '÷':
-			return divide(x, y)
+			return Math.round(divide(x, y) * 100) / 100
 			break
 	}
 }
