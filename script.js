@@ -39,7 +39,6 @@ const equalsKey = () => {
 	secondNumber = parseFloat(bottomDisplay.innerText)
 	topDisplay.innerText += bottomDisplay.innerText + '='
 	bottomDisplay.innerText = operate(operator, firstNumber, secondNumber)
-	console.log(bottomDisplay.innerText)
 }
 
 const allClear = () => {
