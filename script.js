@@ -11,9 +11,9 @@ let secondNumber
 function handleClick(e) {
 	if (!e.target.classList.contains('btn')) return
 	if (e.target.classList.contains('number')) {
-		numberKey()
+		numberKey(e.target)
 	} else if (e.target.classList.contains('operator')) {
-		operatorKey()
+		operatorKey(e.target)
 	} else if (e.target.classList.contains('equals')) {
 		equalsKey()
 	} else if (e.target.classList.contains('ac')) {
@@ -23,25 +23,23 @@ function handleClick(e) {
 	}
 }
 
-const numberKey = () => {
-	bottomDisplay.innerText += e.target.value
+const numberKey = (target) => {
+	bottomDisplay.innerText += target.value
 }
 
-const operatorKey = () => {
-	firstNumber = parseInt(bottomDisplay.innerText)
-	bottomDisplay.innerText += e.target.value
+const operatorKey = (target) => {
+	firstNumber = parseFloat(bottomDisplay.innerText)
+	bottomDisplay.innerText += target.value
 	topDisplay.innerText = bottomDisplay.innerText
 	bottomDisplay.innerText = ''
-	operator = e.target.value
+	operator = target.value
 }
 
 const equalsKey = () => {
-	secondNumber = parseInt(bottomDisplay.innerText)
+	secondNumber = parseFloat(bottomDisplay.innerText)
 	topDisplay.innerText += bottomDisplay.innerText + '='
 	bottomDisplay.innerText = operate(operator, firstNumber, secondNumber)
-	if (secondNumber.toString().length > 4) {
-		secondNumber = Math.round(secondNumber * 10) / 10
-	}
+	console.log(bottomDisplay.innerText)
 }
 
 const allClear = () => {
