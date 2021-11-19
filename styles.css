@@ -46,7 +46,11 @@ body {
 	font-size: 1.3rem;
 	height: 60%;
 	margin-top: 1px;
-	overflow-x: hidden;
+}
+
+.top-display,
+.bottom-display {
+	overflow: hidden;
 }
 
 .buttons {
