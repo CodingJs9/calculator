@@ -31,7 +31,7 @@ const numberKey = (target) => {
 }
 
 const operatorKey = (target) => {
-	firstNumber = parseFloat(bottomDisplay.innerText)
+	firstNumber = parseFloat(bottomDisplay.innerText) || 0
 	bottomDisplay.innerText += target.value
 	topDisplay.innerText = bottomDisplay.innerText
 	bottomDisplay.innerText = ''
@@ -48,7 +48,7 @@ const changeSign = (isNegative) => {
 }
 
 const equalsKey = () => {
-	secondNumber = parseFloat(bottomDisplay.innerText)
+	secondNumber = parseFloat(bottomDisplay.innerText) || 0
 	topDisplay.innerText += bottomDisplay.innerText + '='
 	bottomDisplay.innerText = operate(operator, firstNumber, secondNumber)
 }
