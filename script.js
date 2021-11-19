@@ -7,6 +7,7 @@ buttonsGrid.addEventListener('click', handleClick)
 let operator
 let firstNumber
 let secondNumber
+let isNegative = false
 
 function handleClick(e) {
 	if (!e.target.classList.contains('btn')) return
@@ -14,6 +15,8 @@ function handleClick(e) {
 		numberKey(e.target)
 	} else if (e.target.classList.contains('operator')) {
 		operatorKey(e.target)
+	} else if (e.target.classList.contains('negative')) {
+		changeSign(isNegative)
 	} else if (e.target.classList.contains('equals')) {
 		equalsKey()
 	} else if (e.target.classList.contains('ac')) {
@@ -33,6 +36,15 @@ const operatorKey = (target) => {
 	topDisplay.innerText = bottomDisplay.innerText
 	bottomDisplay.innerText = ''
 	operator = target.value
+}
+
+const changeSign = (isNegative) => {
+	isNegative = !isNegative
+	if (isNegative === true) {
+		bottomDisplay.innerText =
+			parseFloat(bottomDisplay.innerText) -
+			parseFloat(bottomDisplay.innerText * 2)
+	}
 }
 
 const equalsKey = () => {
