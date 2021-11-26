@@ -50,7 +50,7 @@ const changeSign = (isNegative) => {
 const equalsKey = () => {
 	secondNumber = parseFloat(bottomDisplay.innerText) || 0
 	topDisplay.innerText += bottomDisplay.innerText + '='
-	bottomDisplay.innerText = operate(operator, firstNumber, secondNumber)
+	bottomDisplay.innerText = round(operate(operator, firstNumber, secondNumber))
 }
 
 const allClear = () => {
@@ -65,12 +65,14 @@ const backSpace = () => {
 	bottomDisplay.innerText = bottomDisplay.innerText.slice(0, -1)
 }
 
+const round = (x) => Math.round(x * 1000) / 1000
+
 const add = (x, y) => x + y
 const subtract = (x, y) => x - y
 const multiply = (x, y) => x * y
 const divide = (x, y) => x / y
 
-const operate = (operator, x, y) => {
+function operate(operator, x, y) {
 	switch (operator) {
 		case '+':
 			return add(x, y)
